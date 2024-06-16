@@ -4,14 +4,11 @@
     </div>
     <section class="section">
         <div class="card">
-
             <div class="card-body">
-
                 <table class="table table-striped" id="table1">
                     <div class="d-lg-flex gap-1">
                         <div class="col-12 pb-2 col-lg-4 ">
                             <div class="input-group mandatory">
-
                                 <form action="{{ url('/laporankeluar/filter') }}?export=pdf" method="GET"
                                     id="filterForm">
                                     <input type="date" class="form-control flatpickr-no-config"
@@ -25,7 +22,6 @@
                                         <i class="bi bi-x-circle"></i> Reset
                                     </button>
                                 </form>
-
                             </div>
                         </div>
                         <div class="">
@@ -35,7 +31,6 @@
                             </a>
                         </div>
                     </div>
-
                     <thead>
                         <tr>
                             <th>No</th>
@@ -61,12 +56,10 @@
                                 <td>{{ $item->customer->alamat }}</td>
                             </tr>
                         @endforeach
-
                     </tbody>
                 </table>
             </div>
         </div>
-
     </section>
     <script>
         document.getElementById('resetFilter').addEventListener('click', function() {

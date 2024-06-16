@@ -43,6 +43,7 @@
 </head>
 
 <body>
+    {{-- check filter --}}
     @if ($tanggalAwal && $tanggalAkhir)
         <p>Filter Tanggal: {{ $tanggalAwal }} sampai {{ $tanggalAkhir }}</p>
     @endif

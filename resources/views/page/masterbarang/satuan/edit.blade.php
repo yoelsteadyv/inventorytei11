@@ -11,12 +11,10 @@
                     </button>
                 </div>
                 <div class="modal-body">
-
                     <section id="multiple-column-form">
                         <div class="row match-height">
                             <div class="col-12">
                                 <div class="card">
-
                                     <div class="card-content">
                                         <div class="card-body">
                                             <form action="{{ url('/satuanbarang/' . $item->id_satuan) }}" method="POST"
@@ -34,7 +32,6 @@
                                                                 data-parsley-required="true" />
                                                         </div>
                                                     </div>
-
                                                     <div class="col-12">
                                                         <div class="form-group">
                                                             <label for="keterangan"
@@ -42,17 +39,13 @@
                                                             <textarea class="form-control" placeholder="{{ $item->keterangan }}" name="keterangan" id="keterangan" rows="3">{{ $item->keterangan }}</textarea>
                                                         </div>
                                                     </div>
-
-
                                                 </div>
-
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </section>
-
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary me-1 mb-1">
@@ -63,7 +56,6 @@
                     </button>
                 </div>
                 </form>
-
             </div>
         </div>
     </div>

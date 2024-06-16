@@ -11,12 +11,10 @@
                     </button>
                 </div>
                 <div class="modal-body">
-
                     <section id="multiple-column-form">
                         <div class="row match-height">
                             <div class="col-12">
                                 <div class="card">
-
                                     <div class="card-content">
                                         <div class="card-body">
                                             <form action="{{ url('/user/' . $item->id) }}" method="POST" class="form"
@@ -36,7 +34,6 @@
                                                             @enderror
                                                         </div>
                                                     </div>
-
                                                     <div class="col-12">
                                                         <div class="form-group mandatory">
                                                             <label for="email" class="form-label">Email</label>
@@ -49,7 +46,6 @@
                                                             @enderror
                                                         </div>
                                                     </div>
-
                                                     <div class="col-12">
                                                         <div class="form-group mandatory">
                                                             <label for="role" class="form-label">
@@ -64,7 +60,6 @@
                                                                 <option value="material">Material</option>
                                                                 <option value="marketing">Marketing</option>
                                                             </select>
-
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
@@ -84,40 +79,15 @@
                                                                 name="confirm-password" data-parsley-required="true" />
                                                         </div>
                                                     </div>
-
                                                 </div>
-
-                                                {{-- <div class="row">
-                                                    <div class="col-12 d-flex justify-content-end">
-                                                        <button type="submit" class="btn btn-primary me-1 mb-1">
-                                                            Submit
-                                                        </button>
-                                                        <button type="reset"
-                                                            class="btn btn-light-secondary me-1 mb-1">
-                                                            Reset
-                                                        </button>
-                                                    </div>
-                                                </div> --}}
-                                                {{-- </form> --}}
-
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </section>
-
                 </div>
                 <div class="modal-footer">
-                    {{-- <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                        <i class="bx bx-x d-block d-sm-none"></i>
-                        <span class="d-none d-sm-block">Close</span>
-                    </button>
-                    <button type="button" class="btn btn-primary ms-1" data-bs-dismiss="modal">
-                        <i class="bx bx-check d-block d-sm-none"></i>
-                        <span class="d-none d-sm-block">Accept</span>
-                    </button> --}}
                     <button type="submit" class="btn btn-primary me-1 mb-1">
                         Submit
                     </button>
@@ -126,7 +96,6 @@
                     </button>
                 </div>
                 </form>
-
             </div>
         </div>
     </div>

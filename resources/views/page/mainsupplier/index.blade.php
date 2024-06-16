@@ -9,7 +9,6 @@
     </div>
     <section class="section">
         <div class="card">
-
             <div class="card-body">
                 <div class="d-flex justify-content-end mb-3 me-2">
                     <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
@@ -44,7 +43,6 @@
                                             data-bs-target="#defaultSize-edit-{{ $item->id }}"
                                             class="btn icon btn-sm btn-warning"><i
                                                 class="bi bi-pencil-square"></i></button>
-
                                         <form action="{{ url('/mainsupplier/' . $item->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
@@ -56,12 +54,10 @@
                             </tr>
                         @endforeach
                         {{-- {{ dd($main_supplier) }} --}}
-
                     </tbody>
                 </table>
             </div>
         </div>
-
         @include('page.mainsupplier.tambah')
         @include('page.mainsupplier.edit')
     </section>

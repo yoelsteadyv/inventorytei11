@@ -15,7 +15,6 @@
                         <div class="row match-height">
                             <div class="col-12">
                                 <div class="card">
-
                                     <div class="card-content">
                                         <div class="card-body">
                                             <form action="{{ url('/barang/' . $item->id) }}" method="POST"
@@ -58,7 +57,6 @@
                                                                             {{ $jenis->jenis_brg }}</option>
                                                                     @endforeach
                                                                 </select>
-
                                                             </div>
                                                         </div>
                                                     </div>
@@ -81,18 +79,13 @@
                                                             </div>
                                                         </div>
                                                     </div>
-
-
                                                 </div>
-
-
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </section>
-
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary me-1 mb-1">
@@ -103,7 +96,6 @@
                     </button>
                 </div>
                 </form>
-
             </div>
         </div>
     </div>

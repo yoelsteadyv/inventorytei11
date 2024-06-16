@@ -116,10 +116,6 @@
         </div>
     </div>
     {{-- {{ dd($customerList) }} --}}
-    {{-- <div>
-        <!-- Debugging: menampilkan seluruh variabel $item -->
-        <pre>{{ var_dump($barang) }}</pre>
-    </div> --}}
 </x-layout>
 
 
@@ -127,7 +123,7 @@
     document.addEventListener("DOMContentLoaded", function() {
         // Data barang dari server
         var barangData = @json($barangList);
-        console.log('Barang Data:', barangData); // Tambahkan ini untuk debugging
+        console.log('Barang Data:', barangData); // debugging
         var customerData = @json($customerList); // Ambil data customer dari server
 
         var kodeBarangElement = document.getElementById('barang_id');
@@ -138,14 +134,14 @@
         var tujuanElement = document.getElementById('tujuan');
 
         kodeBarangElement.addEventListener('change', function() {
-            var kodeBarang = parseInt(kodeBarangElement.value); // tipe data id adalah integer
-            console.log('Selected Kode Barang:', kodeBarang); // Tambahkan ini untuk debugging
+            var kodeBarang = parseInt(kodeBarangElement.value); // tipe data id integer
+            console.log('Selected Kode Barang:', kodeBarang); // debug
 
             // Mencari data barang berdasarkan kode barang
             var selectedBarang = barangData.find(function(item) {
                 return item.id == kodeBarang;
             });
-            console.log('Selected Barang:', selectedBarang); // Tambahkan ini untuk debugging
+            console.log('Selected Barang:', selectedBarang); //debugging
 
             if (selectedBarang) {
                 namaBarangElement.value = selectedBarang.nama_brg;

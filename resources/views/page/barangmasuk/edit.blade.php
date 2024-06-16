@@ -88,7 +88,6 @@
                                                             </div>
                                                         </div>
                                                         <pre>{{ $item->barang_id }}</pre>
-
                                                         <div class="col-12">
                                                             <div class="form-group">
                                                                 <label for="nama_brg" class="form-label">Nama
@@ -147,12 +146,11 @@
         </div>
     </div>
     </div>
-
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Data barang dari server
             var barangData = @json($barangList);
-            console.log('Barang Data:', barangData); // Tambahkan ini untuk debugging
+            console.log('Barang Data:', barangData); //debugging
 
             var kodeBarangElement = document.getElementById('barang_id');
             var namaBarangElement = document.getElementById('nama_brg');
@@ -161,13 +159,13 @@
 
             kodeBarangElement.addEventListener('change', function() {
                 var kodeBarang = parseInt(kodeBarangElement.value); // tipe data id adalah integer
-                console.log('Selected Kode Barang:', kodeBarang); // Tambahkan ini untuk debugging
+                console.log('Selected Kode Barang:', kodeBarang); //debugging
 
                 // Mencari data barang berdasarkan kode barang
                 var selectedBarang = barangData.find(function(item) {
                     return item.id === kodeBarang;
                 });
-                console.log('Selected Barang:', selectedBarang); // Tambahkan ini untuk debugging
+                console.log('Selected Barang:', selectedBarang); //debugging
 
                 if (selectedBarang) {
                     namaBarangElement.value = selectedBarang.nama_brg;

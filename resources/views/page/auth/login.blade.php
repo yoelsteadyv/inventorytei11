@@ -24,7 +24,6 @@
                         <h1 class="auth-title">Inventory</h1>
                         <h1 class="auth-title" style="position: relative; bottom: 20px;">Log in.</h1>
                     </div>
-
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -33,7 +32,6 @@
                                 @endforeach
                             </ul>
                         </div>
-
                     @endif
                     <form action="" method="POST">
                         @csrf

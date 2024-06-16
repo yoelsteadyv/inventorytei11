@@ -14,7 +14,6 @@
                     <div class="row match-height">
                         <div class="col-12">
                             <div class="card">
-
                                 <div class="card-content">
                                     <div class="card-body">
                                         <form id="user-tambah" action="{{ url('/mainsupplier') }}" method="POST"
@@ -65,7 +64,6 @@
                                                             data-parsley-required="true" />
                                                     </div>
                                                 </div>
-
                                                 <div class="col-12">
                                                     <div class="form-group mandatory">
                                                         <label for="person" class="form-label">
@@ -75,17 +73,13 @@
                                                             data-parsley-required="true" />
                                                     </div>
                                                 </div>
-
                                             </div>
-
-
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary me-1 mb-1">
@@ -94,10 +88,8 @@
                 <button type="reset" class="btn btn-light-secondary me-1 mb-1">
                     Reset
                 </button>
-
             </div>
             </form>
-
         </div>
     </div>
 </div>

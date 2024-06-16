@@ -14,7 +14,6 @@
                     <div class="row match-height">
                         <div class="col-12">
                             <div class="card">
-
                                 <div class="card-content">
                                     <div class="card-body">
                                         <form id="user-tambah" action="{{ url('/barang') }}" method="POST"
@@ -55,7 +54,6 @@
                                                                         {{ $jenis->jenis_brg }}</option>
                                                                 @endforeach
                                                             </select>
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -75,26 +73,13 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {{-- <div class="col-12">
-                                                    <div class="form-group mandatory">
-                                                        <label for="harga" class="form-label">
-                                                            Harga</label>
-                                                        <input type="number" id="harga" class="form-control"
-                                                            placeholder="" name="harga"
-                                                            data-parsley-required="true" />
-                                                    </div>
-                                                </div> --}}
-
                                             </div>
-
-
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary me-1 mb-1">
@@ -105,7 +90,6 @@
                 </button>
             </div>
             </form>
-
         </div>
     </div>
 </div>
