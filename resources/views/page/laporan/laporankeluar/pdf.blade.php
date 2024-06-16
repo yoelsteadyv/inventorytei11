@@ -42,6 +42,9 @@
 </head>
 
 <body>
+    @if ($tanggalAwal && $tanggalAkhir)
+        <p>Filter Tanggal: {{ $tanggalAwal }} sampai {{ $tanggalAkhir }}</p>
+    @endif
     <section class="section">
         <div class="card">
             <h1 style="text-align: center;">TEI</h1>

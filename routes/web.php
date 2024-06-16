@@ -132,12 +132,13 @@ Route::get('/laporanmasuk/filter', [LapBarangMasukController::class, 'index']);
 Route::get('/laporanmasuk/pdf', [LapBarangMasukController::class, 'pdf']);
 
 // lapkeluar
-Route::get('/laporankeluar', function () {
+Route::get('/laporankeluar', function (Request $request) {
     if (Auth::user()->role == 'marketing' || Auth::user()->role == 'material') {
         return redirect('/dashboard');
     }
-    return app(LapBarangKeluarController::class)->index();
+    return app(LapBarangKeluarController::class)->index($request);
 });
+Route::get('/laporankeluar/filter', [LapBarangKeluarController::class, 'index']);
 Route::get('/laporankeluar/pdf', [LapBarangKeluarController::class, 'pdf']);
 
 Route::get('/stok', [StokController::class, 'index']);

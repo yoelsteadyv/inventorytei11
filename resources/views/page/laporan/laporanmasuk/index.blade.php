@@ -11,15 +11,7 @@
                     <div class="d-lg-flex gap-1">
                         <div class="col-12 pb-2 col-lg-4 ">
                             <div class="input-group mandatory">
-                                {{-- <input type="date" class="form-control flatpickr-range" placeholder="Select date..">
-                                <button class="btn btn-outline-warning" type="button" id="button-addon2"><i
-                                        class="bi bi-funnel"></i>
-                                    Filter</button> --}}
-                                {{-- <input type="date" class="form-control flatpickr-range" placeholder="Select date.."
-                                    name="tanggal">
-                                <button class="btn btn-outline-warning" type="submit" id="button-addon2">
-                                    <i class="bi bi-funnel"></i> Filter
-                                </button> --}}
+
                                 <form action="{{ url('/laporanmasuk/filter') }}?export=pdf" method="GET"
                                     id="filterForm">
                                     <input type="date" class="form-control flatpickr-no-config"

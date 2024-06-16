@@ -4,39 +4,52 @@ namespace App\Http\Controllers;
 
 use App\Models\BarangKeluar;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class LapBarangKeluarController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $laporanBarangKeluarList = BarangKeluar::with('barang', 'customer')->get()->sortByDesc('created_at');
-        // $barang = Barang::query()->latest()->get();
-        // $supplier = MainSupplier::query()->latest()->get();
-        // $barang_keluar = BarangKeluar::query()
-        //     ->leftJoin('barangs', 'barang_keluars.kd_barang', '=', 'barangs.kd_barang')
-        //     ->leftJoin('main_customers', 'barang_keluars.kd_customer', '=', 'main_customers.kd_customer')
-        //     ->leftJoin('jenis', 'barangs.id_jenis', '=', 'jenis.id_jenis')
-        //     ->leftJoin('satuans', 'barangs.id_satuan', '=', 'satuans.id_satuan')
-        //     ->latest('barang_keluars.created_at')
-        //     ->get();
-        // dd($barang);
-        return view("page.laporan.laporankeluar.index", compact("laporanBarangKeluarList"));
+        $tanggalAwal = $request->input('tanggal_awal');
+        $tanggalAkhir = $request->input('tanggal_akhir');
+
+        $laporanBarangKeluarList = BarangKeluar::with('barang', 'customer')
+            ->when($tanggalAwal && $tanggalAkhir, function ($query) use ($tanggalAwal, $tanggalAkhir) {
+                $query->whereDate('tgl_keluar', '>=', Carbon::parse($tanggalAwal))
+                    ->whereDate('tgl_keluar', '<=', Carbon::parse($tanggalAkhir));
+            })
+            ->orderByDesc('created_at')
+            ->get();
+
+        // Simpan parameter ke session jika ada
+        if ($tanggalAwal && $tanggalAkhir) {
+            session(['tanggal_awal' => $tanggalAwal, 'tanggal_akhir' => $tanggalAkhir]);
+        } else {
+            // Hapus parameter dari session jika tidak ada
+            session()->forget(['tanggal_awal', 'tanggal_akhir']);
+        }
+
+        return view('page.laporan.laporankeluar.index', compact('laporanBarangKeluarList'));
     }
     public function pdf(Request $request)
     {
-        $laporanBarangKeluarList = BarangKeluar::with('barang', 'customer')->get()->sortByDesc('created_at');
-        // $barang_keluar = BarangKeluar::query()
-        //     ->leftJoin('barangs', 'barang_keluars.kd_barang', '=', 'barangs.kd_barang')
-        //     ->leftJoin('main_customers', 'barang_keluars.kd_customer', '=', 'main_customers.kd_customer')
-        //     ->leftJoin('jenis', 'barangs.id_jenis', '=', 'jenis.id_jenis')
-        //     ->leftJoin('satuans', 'barangs.id_satuan', '=', 'satuans.id_satuan')
-        //     ->latest('barang_keluars.created_at')
-        //     ->get();
-        if ($request->get('export') == 'pdf') {
-            $pdf = Pdf::loadView('page.laporan.laporankeluar.pdf', compact("laporanBarangKeluarList", "request"));
-            return $pdf->stream('laporankeluar.pdf');
-        }
-        // return view("page.laporan.stok.pdf", compact("datas", "request"));
+        // Ambil parameter dari session
+        $tanggalAwal = session('tanggal_awal');
+        $tanggalAkhir = session('tanggal_akhir');
+
+        $laporanBarangKeluarList = BarangKeluar::with('barang', 'customer')
+            ->when($tanggalAwal && $tanggalAkhir, function ($query) use ($tanggalAwal, $tanggalAkhir) {
+                $query->whereDate('tgl_keluar', '>=', $tanggalAwal)
+                    ->whereDate('tgl_keluar', '<=', $tanggalAkhir);
+            })
+            ->orderByDesc('created_at')
+            ->get();
+
+        // Load view PDF dengan menggunakan data yang sudah difilter
+        $pdf = PDF::loadView('page.laporan.laporankeluar.pdf', compact('laporanBarangKeluarList', 'tanggalAwal', 'tanggalAkhir'));
+
+        // Download atau tampilkan PDF
+        return $pdf->stream('laporankeluar.pdf');
     }
 }
