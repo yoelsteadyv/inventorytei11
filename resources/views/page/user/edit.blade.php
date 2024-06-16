@@ -53,7 +53,8 @@
                                                             <select class="choices form-select text-capitalize"
                                                                 id="role" name="role"
                                                                 data-parsley-required="true">
-                                                                <option hidden value="">{{ $item->role }}
+                                                                <option hidden value="{{ $item->role }}">
+                                                                    {{ $item->role }}
                                                                 </option>
                                                                 <option value="admin">Admin</option>
                                                                 <option value="manager">Manager</option>
