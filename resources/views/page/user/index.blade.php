@@ -36,16 +36,18 @@
                                 <td>{{ $item->role }}</td>
                                 <td>
                                     <div class="d-flex gap-2 ">
-                                        <button data-bs-toggle="modal"
-                                            data-bs-target="#defaultSize-edit-{{ $item->id }}"
-                                            class="btn icon btn-sm btn-warning"><i
-                                                class="bi bi-pencil-square"></i></button>
-                                        <form action="{{ url('/user/' . $item->id) }}" method="POST">
-                                            @csrf
-                                            @method('delete')
-                                            <button class="btn icon btn-sm btn-danger"><i
-                                                    class="bi bi-trash"></i></button>
-                                        </form>
+                                        @if ($item->role !== 'admin')
+                                            <button data-bs-toggle="modal"
+                                                data-bs-target="#defaultSize-edit-{{ $item->id }}"
+                                                class="btn icon btn-sm btn-warning"><i
+                                                    class="bi bi-pencil-square"></i></button>
+                                            <form action="{{ url('/user/' . $item->id) }}" method="POST">
+                                                @csrf
+                                                @method('delete')
+                                                <button class="btn icon btn-sm btn-danger"><i
+                                                        class="bi bi-trash"></i></button>
+                                            </form>
+                                        @endif
                                     </div>
                                 </td>
                             </tr>
