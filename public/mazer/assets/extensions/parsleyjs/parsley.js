@@ -13,9 +13,10 @@
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('jquery')) :
-  typeof define === 'function' && define.amd ? define(['jquery'], factory) :
-  (global = global || self, global.parsley = factory(global.jQuery));
-}(this, (function ($) { 'use strict';
+    typeof define === 'function' && define.amd ? define(['jquery'], factory) :
+      (global = global || self, global.parsley = factory(global.jQuery));
+}(this, (function ($) {
+  'use strict';
 
   function _typeof(obj) {
     if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
@@ -121,7 +122,7 @@
       var attribute;
       var attributes;
       var regex = new RegExp('^' + namespace, 'i');
-      if ('undefined' === typeof obj) obj = {};else {
+      if ('undefined' === typeof obj) obj = {}; else {
         // Clear all own properties. This won't affect prototype's values
         for (i in obj) {
           if (obj.hasOwnProperty(i)) delete obj[i];
@@ -198,11 +199,11 @@
         var _parsed$map = parsed.map(function (x) {
           return parseInt(x, 10);
         }),
-            _parsed$map2 = _slicedToArray(_parsed$map, 4),
-            _ = _parsed$map2[0],
-            year = _parsed$map2[1],
-            month = _parsed$map2[2],
-            day = _parsed$map2[3];
+          _parsed$map2 = _slicedToArray(_parsed$map, 4),
+          _ = _parsed$map2[0],
+          year = _parsed$map2[1],
+          month = _parsed$map2[2],
+          day = _parsed$map2[3];
 
         var date = new Date(year, month - 1, day);
         if (date.getFullYear() !== year || date.getMonth() + 1 !== month || date.getDate() !== day) return null;
@@ -272,7 +273,7 @@
     },
     // Object.create polyfill, see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create#Polyfill
     objectCreate: Object.create || function () {
-      var Object = function Object() {};
+      var Object = function Object() { };
 
       return function (prototype) {
         if (arguments.length > 1) {
@@ -328,10 +329,10 @@
     successClass: 'parsley-success',
     // Return the `$element` that will receive these above success or error classes
     // Could also be (and given directly from DOM) a valid selector like `'#div'`
-    classHandler: function classHandler(Field) {},
+    classHandler: function classHandler(Field) { },
     // Return the `$element` where errors will be appended
     // Could also be (and given directly from DOM) a valid selector like `'#div'`
-    errorsContainer: function errorsContainer(Field) {},
+    errorsContainer: function errorsContainer(Field) { },
     // ul elem that would receive errors' list
     errorsWrapper: '<ul class="parsley-errors-list"></ul>',
     // li elem that would receive error message
@@ -557,24 +558,24 @@
       }
     },
     url: new RegExp("^" + // protocol identifier
-    "(?:(?:https?|ftp)://)?" + // ** mod: make scheme optional
-    // user:pass authentication
-    "(?:\\S+(?::\\S*)?@)?" + "(?:" + // IP address exclusion
-    // private & local networks
-    // "(?!(?:10|127)(?:\\.\\d{1,3}){3})" +   // ** mod: allow local networks
-    // "(?!(?:169\\.254|192\\.168)(?:\\.\\d{1,3}){2})" +  // ** mod: allow local networks
-    // "(?!172\\.(?:1[6-9]|2\\d|3[0-1])(?:\\.\\d{1,3}){2})" +  // ** mod: allow local networks
-    // IP address dotted notation octets
-    // excludes loopback network 0.0.0.0
-    // excludes reserved space >= 224.0.0.0
-    // excludes network & broacast addresses
-    // (first & last IP address of each class)
-    "(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])" + "(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}" + "(?:\\.(?:[1-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))" + "|" + // host name
-    "(?:(?:[a-zA-Z\\u00a1-\\uffff0-9]-*)*[a-zA-Z\\u00a1-\\uffff0-9]+)" + // domain name
-    "(?:\\.(?:[a-zA-Z\\u00a1-\\uffff0-9]-*)*[a-zA-Z\\u00a1-\\uffff0-9]+)*" + // TLD identifier
-    "(?:\\.(?:[a-zA-Z\\u00a1-\\uffff]{2,}))" + ")" + // port number
-    "(?::\\d{2,5})?" + // resource path
-    "(?:/\\S*)?" + "$")
+      "(?:(?:https?|ftp)://)?" + // ** mod: make scheme optional
+      // user:pass authentication
+      "(?:\\S+(?::\\S*)?@)?" + "(?:" + // IP address exclusion
+      // private & local networks
+      // "(?!(?:10|127)(?:\\.\\d{1,3}){3})" +   // ** mod: allow local networks
+      // "(?!(?:169\\.254|192\\.168)(?:\\.\\d{1,3}){2})" +  // ** mod: allow local networks
+      // "(?!172\\.(?:1[6-9]|2\\d|3[0-1])(?:\\.\\d{1,3}){2})" +  // ** mod: allow local networks
+      // IP address dotted notation octets
+      // excludes loopback network 0.0.0.0
+      // excludes reserved space >= 224.0.0.0
+      // excludes network & broacast addresses
+      // (first & last IP address of each class)
+      "(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])" + "(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}" + "(?:\\.(?:[1-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))" + "|" + // host name
+      "(?:(?:[a-zA-Z\\u00a1-\\uffff0-9]-*)*[a-zA-Z\\u00a1-\\uffff0-9]+)" + // domain name
+      "(?:\\.(?:[a-zA-Z\\u00a1-\\uffff0-9]-*)*[a-zA-Z\\u00a1-\\uffff0-9]+)*" + // TLD identifier
+      "(?:\\.(?:[a-zA-Z\\u00a1-\\uffff]{2,}))" + ")" + // port number
+      "(?::\\d{2,5})?" + // resource path
+      "(?:/\\S*)?" + "$")
   };
   typeTesters.range = typeTesters.number; // See http://stackoverflow.com/a/10454560/8279
 
@@ -586,8 +587,8 @@
     }
 
     return Math.max(0, // Number of digits right of decimal point.
-    (match[1] ? match[1].length : 0) - ( // Adjust for scientific notation.
-    match[2] ? +match[2] : 0));
+      (match[1] ? match[1].length : 0) - ( // Adjust for scientific notation.
+        match[2] ? +match[2] : 0));
   }; // parseArguments('number', ['1', '2']) => [1, 2]
 
 
@@ -671,7 +672,7 @@
     // Old API was addValidator(name, function, priority)
     //
     addValidator: function addValidator(name, arg1, arg2) {
-      if (this.validators[name]) Utils.warn('Validator "' + name + '" is already defined.');else if (Defaults.hasOwnProperty(name)) {
+      if (this.validators[name]) Utils.warn('Validator "' + name + '" is already defined.'); else if (Defaults.hasOwnProperty(name)) {
         Utils.warn('"' + name + '" is a restricted keyword and is not a valid validator name.');
         return;
       }
@@ -762,10 +763,10 @@
       type: {
         validateString: function validateString(value, type) {
           var _ref = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {},
-              _ref$step = _ref.step,
-              step = _ref$step === void 0 ? 'any' : _ref$step,
-              _ref$base = _ref.base,
-              base = _ref$base === void 0 ? 0 : _ref$base;
+            _ref$step = _ref.step,
+            step = _ref$step === void 0 ? 'any' : _ref$step,
+            _ref$base = _ref.base,
+            base = _ref$base === void 0 ? 0 : _ref$base;
 
           var tester = typeTesters[type];
 
@@ -870,7 +871,7 @@
           if (!value) return true; // Builtin validators all accept empty strings, except `required` of course
 
           var $reference = $(refOrValue);
-          if ($reference.length) return value === $reference.val();else return value === refOrValue;
+          if ($reference.length) return value === $reference.val(); else return value === refOrValue;
         },
         priority: 256
       },
@@ -904,7 +905,7 @@
         }
       }
 
-      if (found) kept.push(newResult[i]);else added.push(newResult[i]);
+      if (found) kept.push(newResult[i]); else added.push(newResult[i]);
     }
 
     return {
@@ -990,10 +991,10 @@
     // It's a goal of Parsley that this method is no longer required [#1073]
     addError: function addError(name) {
       var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
-          message = _ref.message,
-          assert = _ref.assert,
-          _ref$updateClass = _ref.updateClass,
-          updateClass = _ref$updateClass === void 0 ? true : _ref$updateClass;
+        message = _ref.message,
+        assert = _ref.assert,
+        _ref$updateClass = _ref.updateClass,
+        updateClass = _ref$updateClass === void 0 ? true : _ref$updateClass;
 
       this._buildUI();
 
@@ -1007,10 +1008,10 @@
     // It's a goal of Parsley that this method is no longer required [#1073]
     updateError: function updateError(name) {
       var _ref2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
-          message = _ref2.message,
-          assert = _ref2.assert,
-          _ref2$updateClass = _ref2.updateClass,
-          updateClass = _ref2$updateClass === void 0 ? true : _ref2$updateClass;
+        message = _ref2.message,
+        assert = _ref2.assert,
+        _ref2$updateClass = _ref2.updateClass,
+        updateClass = _ref2$updateClass === void 0 ? true : _ref2$updateClass;
 
       this._buildUI();
 
@@ -1024,8 +1025,8 @@
     // It's a goal of Parsley that this method is no longer required [#1073]
     removeError: function removeError(name) {
       var _ref3 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
-          _ref3$updateClass = _ref3.updateClass,
-          updateClass = _ref3$updateClass === void 0 ? true : _ref3$updateClass;
+        _ref3$updateClass = _ref3.updateClass,
+        updateClass = _ref3$updateClass === void 0 ? true : _ref3$updateClass;
 
       this._buildUI();
 
@@ -1036,7 +1037,7 @@
       if (updateClass) this._manageStatusClass();
     },
     _manageStatusClass: function _manageStatusClass() {
-      if (this.hasConstraints() && this.needsValidation() && true === this.validationResult) this._successClass();else if (this.validationResult.length > 0) this._errorClass();else this._resetClass();
+      if (this.hasConstraints() && this.needsValidation() && true === this.validationResult) this._successClass(); else if (this.validationResult.length > 0) this._errorClass(); else this._resetClass();
     },
     _manageErrorsMessages: function _manageErrorsMessages(diff) {
       if ('undefined' !== typeof this.options.errorsMessagesDisabled) return; // Case where we have errorMessage option that configure an unique field error message, regardless failing validators
@@ -1078,7 +1079,7 @@
     },
     _addError: function _addError(name, _ref4) {
       var message = _ref4.message,
-          assert = _ref4.assert;
+        assert = _ref4.assert;
 
       this._insertErrorWrapper();
 
@@ -1088,7 +1089,7 @@
     },
     _updateError: function _updateError(name, _ref5) {
       var message = _ref5.message,
-          assert = _ref5.assert;
+        assert = _ref5.assert;
 
       this._ui.$errorsWrapper.addClass('filled').find('.parsley-' + name).html(message || this._getErrorMessage(assert));
     },
@@ -1154,7 +1155,7 @@
       if (0 !== this._ui.$errorsWrapper.parent().length) return this._ui.$errorsWrapper.parent();
 
       if ('string' === typeof $errorsContainer) {
-        if ($($errorsContainer).length) return $($errorsContainer).append(this._ui.$errorsWrapper);else if ('function' === typeof window[$errorsContainer]) $errorsContainer = window[$errorsContainer];else Utils.warn('The errors container `' + $errorsContainer + '` does not exist in DOM nor as a global JS function');
+        if ($($errorsContainer).length) return $($errorsContainer).append(this._ui.$errorsWrapper); else if ('function' === typeof window[$errorsContainer]) $errorsContainer = window[$errorsContainer]; else Utils.warn('The errors container `' + $errorsContainer + '` does not exist in DOM nor as a global JS function');
       }
 
       if ('function' === typeof $errorsContainer) $errorsContainer = $errorsContainer.call(this, this);
@@ -1171,7 +1172,7 @@
       $toBind.off('.Parsley');
       if (this._failedOnce) $toBind.on(Utils.namespaceEvents(this.options.triggerAfterFailure, 'Parsley'), function () {
         _this2._validateIfNeeded();
-      });else if (trigger = Utils.namespaceEvents(this.options.trigger, 'Parsley')) {
+      }); else if (trigger = Utils.namespaceEvents(this.options.trigger, 'Parsley')) {
         $toBind.on(trigger, function (event) {
           _this2._validateIfNeeded(event);
         });
@@ -1263,7 +1264,7 @@
         event: event
       });
 
-      if ('resolved' === promise.state() && false !== this._trigger('submit')) ; else {
+      if ('resolved' === promise.state() && false !== this._trigger('submit')); else {
         // Rejected or pending: cancel this submit
         event.stopImmediatePropagation();
         event.preventDefault();
@@ -1304,9 +1305,9 @@
         Utils.warnOnce('Calling validate on a parsley form without passing arguments as an object is deprecated.');
 
         var _arguments = Array.prototype.slice.call(arguments),
-            group = _arguments[0],
-            force = _arguments[1],
-            event = _arguments[2];
+          group = _arguments[0],
+          force = _arguments[1],
+          event = _arguments[2];
 
         options = {
           group: group,
@@ -1319,12 +1320,12 @@
     },
     whenValidate: function whenValidate() {
       var _this2 = this,
-          _Utils$all$done$fail$;
+        _Utils$all$done$fail$;
 
       var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-          group = _ref.group,
-          force = _ref.force,
-          event = _ref.event;
+        group = _ref.group,
+        force = _ref.force,
+        event = _ref.event;
 
       this.submitEvent = event;
 
@@ -1374,8 +1375,8 @@
         Utils.warnOnce('Calling isValid on a parsley form without passing arguments as an object is deprecated.');
 
         var _arguments2 = Array.prototype.slice.call(arguments),
-            group = _arguments2[0],
-            force = _arguments2[1];
+          group = _arguments2[0],
+          force = _arguments2[1];
 
         options = {
           group: group,
@@ -1392,8 +1393,8 @@
       var _this3 = this;
 
       var _ref2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-          group = _ref2.group,
-          force = _ref2.force;
+        group = _ref2.group,
+        force = _ref2.force;
 
       this._refreshFields();
 
@@ -1588,11 +1589,11 @@
     // or `undefined` if field is not in the given `group`.
     whenValidate: function whenValidate() {
       var _this$whenValid$alway,
-          _this = this;
+        _this = this;
 
       var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-          force = _ref.force,
-          group = _ref.group;
+        force = _ref.force,
+        group = _ref.group;
 
       // do not validate a field if not the same as given validation group
       this.refresh();
@@ -1639,8 +1640,8 @@
         Utils.warnOnce('Calling isValid on a parsley field without passing arguments as an object is deprecated.');
 
         var _arguments = Array.prototype.slice.call(arguments),
-            force = _arguments[0],
-            value = _arguments[1];
+          force = _arguments[0],
+          value = _arguments[1];
 
         options = {
           force: force,
@@ -1662,11 +1663,11 @@
       var _this2 = this;
 
       var _ref2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-          _ref2$force = _ref2.force,
-          force = _ref2$force === void 0 ? false : _ref2$force,
-          value = _ref2.value,
-          group = _ref2.group,
-          _refreshed = _ref2._refreshed;
+        _ref2$force = _ref2.force,
+        force = _ref2$force === void 0 ? false : _ref2$force,
+        value = _ref2.value,
+        group = _ref2.group,
+        _refreshed = _ref2._refreshed;
 
       // Recompute options and rebind constraints to have latest changes
       if (!_refreshed) this.refresh(); // do not validate a field if not the same as given validation group
@@ -1714,7 +1715,7 @@
     getValue: function getValue() {
       var value; // Value could be overriden in DOM or with explicit options
 
-      if ('function' === typeof this.options.value) value = this.options.value(this);else if ('undefined' !== typeof this.options.value) value = this.options.value;else value = this.$element.val(); // Handle wrong DOM or configurations
+      if ('function' === typeof this.options.value) value = this.options.value(this); else if ('undefined' !== typeof this.options.value) value = this.options.value; else value = this.$element.val(); // Handle wrong DOM or configurations
 
       if ('undefined' === typeof value || null === value) return '';
       return this._handleWhitespace(value);
@@ -1820,11 +1821,11 @@
       var max = this.element.getAttribute('max');
       if (null !== min && null !== max) this.addConstraint('range', [min, max], undefined, true); // HTML5 min
       else if (null !== min) this.addConstraint('min', min, undefined, true); // HTML5 max
-        else if (null !== max) this.addConstraint('max', max, undefined, true); // length
+      else if (null !== max) this.addConstraint('max', max, undefined, true); // length
 
       if (null !== this.element.getAttribute('minlength') && null !== this.element.getAttribute('maxlength')) this.addConstraint('length', [this.element.getAttribute('minlength'), this.element.getAttribute('maxlength')], undefined, true); // HTML5 minlength
       else if (null !== this.element.getAttribute('minlength')) this.addConstraint('minlength', this.element.getAttribute('minlength'), undefined, true); // HTML5 maxlength
-        else if (null !== this.element.getAttribute('maxlength')) this.addConstraint('maxlength', this.element.getAttribute('maxlength'), undefined, true); // html5 types
+      else if (null !== this.element.getAttribute('maxlength')) this.addConstraint('maxlength', this.element.getAttribute('maxlength'), undefined, true); // html5 types
 
       var type = Utils.getType(this.element); // Small special case here for HTML5 number: integer validator if step attribute is undefined or an integer value, number otherwise
 
@@ -1927,7 +1928,7 @@
     // See `Field.getValue()`
     getValue: function getValue() {
       // Value could be overriden in DOM
-      if ('function' === typeof this.options.value) return this.options.value(this);else if ('undefined' !== typeof this.options.value) return this.options.value; // Radio input case
+      if ('function' === typeof this.options.value) return this.options.value(this); else if ('undefined' !== typeof this.options.value) return this.options.value; // Radio input case
 
       if (this.element.nodeName === 'INPUT') {
         var type = Utils.getType(this.element);
@@ -2382,29 +2383,53 @@
 
   // This is included with the Parsley library itself,
   Parsley.addMessages('en', {
-    defaultMessage: "This value seems to be invalid.",
+    //   defaultMessage: "This value seems to be invalid.",
+    //   type: {
+    //     email: "This value should be a valid email.",
+    //     url: "This value should be a valid url.",
+    //     number: "This value should be a valid number.",
+    //     integer: "This value should be a valid integer.",
+    //     digits: "This value should be digits.",
+    //     alphanum: "This value should be alphanumeric."
+    //   },
+    //   notblank: "This value should not be blank.",
+    //   required: "This value is required.",
+    //   pattern: "This value seems to be invalid.",
+    //   min: "This value should be greater than or equal to %s.",
+    //   max: "This value should be lower than or equal to %s.",
+    //   range: "This value should be between %s and %s.",
+    //   minlength: "This value is too short. It should have %s characters or more.",
+    //   maxlength: "This value is too long. It should have %s characters or fewer.",
+    //   length: "This value length is invalid. It should be between %s and %s characters long.",
+    //   mincheck: "You must select at least %s choices.",
+    //   maxcheck: "You must select %s choices or fewer.",
+    //   check: "You must select between %s and %s choices.",
+    //   equalto: "This value should be the same.",
+    //   euvatin: "It's not a valid VAT Identification Number."
+    // });
+    defaultMessage: "Nilai ini tampaknya tidak valid.",
     type: {
-      email: "This value should be a valid email.",
-      url: "This value should be a valid url.",
-      number: "This value should be a valid number.",
-      integer: "This value should be a valid integer.",
-      digits: "This value should be digits.",
-      alphanum: "This value should be alphanumeric."
+      email: "Nilai ini harus berupa alamat email yang valid.",
+      url: "Nilai ini harus berupa URL yang valid.",
+      number: "Nilai ini harus berupa angka yang valid.",
+      integer: "Nilai ini harus berupa bilangan bulat yang valid.",
+      digits: "Nilai ini harus berupa digit angka.",
+      alphanum: "Nilai ini harus berupa karakter alfanumerik."
     },
-    notblank: "This value should not be blank.",
-    required: "This value is required.",
-    pattern: "This value seems to be invalid.",
-    min: "This value should be greater than or equal to %s.",
-    max: "This value should be lower than or equal to %s.",
-    range: "This value should be between %s and %s.",
-    minlength: "This value is too short. It should have %s characters or more.",
-    maxlength: "This value is too long. It should have %s characters or fewer.",
-    length: "This value length is invalid. It should be between %s and %s characters long.",
-    mincheck: "You must select at least %s choices.",
-    maxcheck: "You must select %s choices or fewer.",
-    check: "You must select between %s and %s choices.",
-    equalto: "This value should be the same.",
-    euvatin: "It's not a valid VAT Identification Number."
+    notblank: "Nilai ini tidak boleh kosong.",
+    required: "Nilai ini diperlukan.",
+    pattern: "Nilai ini tampaknya tidak valid.",
+    min: "Nilai ini harus lebih besar atau sama dengan %s.",
+    max: "Nilai ini harus lebih kecil atau sama dengan %s.",
+    range: "Nilai ini harus di antara %s dan %s.",
+    minlength: "Nilai ini terlalu pendek. Harus memiliki %s karakter atau lebih.",
+    maxlength: "Nilai ini terlalu panjang. Harus memiliki %s karakter atau lebih sedikit.",
+    length: "Panjang nilai ini tidak valid. Harus di antara %s dan %s karakter.",
+    mincheck: "Anda harus memilih minimal %s pilihan.",
+    maxcheck: "Anda hanya boleh memilih %s pilihan atau kurang.",
+    check: "Anda harus memilih antara %s dan %s pilihan.",
+    equalto: "Nilai ini harus sama dengan yang lain.",
+    euvatin: "Ini bukan Nomor Identifikasi Pajak (NIP) yang valid."
   });
   Parsley.setLocale('en');
 
@@ -2436,7 +2461,7 @@
       behavesOk: function behavesOk(evt) {
         if (_this.isNativeEvent(evt)) {
           $(document) // Simply unbinds the testing handler
-          .off('input.inputevent', evt.data.selector, _this.behavesOk).off('change.inputevent', evt.data.selector, _this.misbehaves);
+            .off('input.inputevent', evt.data.selector, _this.behavesOk).off('change.inputevent', evt.data.selector, _this.misbehaves);
         }
       },
       // Bind the testing handlers
