@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('barang_keluars', function (Blueprint $table) {
             $table->id();
-            $table->string('kd_brg_keluar')->unique();
+            $table->string('kd_brg_keluar', 16)->unique();
             $table->date('tgl_keluar');
             $table->foreignId('barang_id')->constrained('barangs')->onDelete('cascade');
             $table->foreignId('customer_id')->constrained('main_customers')->onDelete('cascade');

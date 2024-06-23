@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('satuans', function (Blueprint $table) {
             $table->id();
-            $table->string('satuan_brg');
-            $table->longText('keterangan')->nullable();
+            $table->string('satuan_brg', 32);
+            $table->string('keterangan', 255)->nullable();
             $table->timestamps();
         });
     }

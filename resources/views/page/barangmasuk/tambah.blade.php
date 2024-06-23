@@ -27,7 +27,9 @@
                                 <label for="tgl_masuk" class="form-label">Tanggal Barang Masuk</label>
                                 <div class="form-group">
                                     <input type="date" name="tgl_masuk" class="form-control flatpickr-no-config"
-                                        placeholder="Select date.." data-parsley-required="true">
+                                        placeholder="Masukan Tanggal Barang Masuk"
+                                        data-parsley-required-message="Tanggal Barang Masuk Harus Diisi"
+                                        data-parsley-required="true">
                                 </div>
                             </div>
                         </div>
@@ -35,7 +37,9 @@
                             <div class="form-group mandatory">
                                 <label for="supplier_id" class="form-label">PT Supplier</label>
                                 <div class="form-group">
-                                    <select class="choices form-select" name="supplier_id" data-parsley-required="true">
+                                    <select class="choices form-select" name="supplier_id"
+                                        data-parsley-required-message="PT Supplier Harus Diisi"
+                                        data-parsley-required="true">
                                         <option hidden value="">Pilih PT Supplier</option>
                                         @foreach ($supplierList as $supplier)
                                             <option value="{{ $supplier->id }}">{{ $supplier->pt_supplier }}
@@ -50,6 +54,7 @@
                                 <label for="barang_id" class="form-label">Kode Barang</label>
                                 <div class="form-group">
                                     <select class="choices form-select" id="barang_id" name="barang_id"
+                                        data-parsley-required-message="Kode Barang Harus Diisi"
                                         data-parsley-required="true">
                                         <option hidden value="">Pilih Kode Barang</option>
                                         @foreach ($barangList as $barang)
@@ -82,7 +87,8 @@
                             <div class="form-group mandatory">
                                 <label for="brg_masuk" class="form-label">Barang Masuk</label>
                                 <input type="number" id="brg_masuk" class="form-control" placeholder=""
-                                    name="brg_masuk" data-parsley-required="true" />
+                                    name="brg_masuk" data-parsley-required-message="Masukkan jumlah barang masuk"
+                                    data-parsley-required="true" />
                             </div>
                         </div>
                     </div>

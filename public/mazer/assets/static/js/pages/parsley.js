@@ -3,7 +3,7 @@ $.extend(window.Parsley.options, {
   excluded:
     "input[type=button], input[type=submit], input[type=reset], .search, .ignore",
   triggerAfterFailure: "change blur",
-  errorsContainer: function (element) {},
+  errorsContainer: function (element) { },
   trigger: "change",
   successClass: "is-valid",
   errorClass: "is-invalid",
@@ -35,7 +35,8 @@ Parsley.on("field:validated", function (el) {
         if (errorNode.length > 0) {
           var lblText = lblNode.text()
           if (lblText) {
-            errorNode.html(lblText + " is required.")
+            // errorNode.html(lblText + " is required.")
+            errorNode.html(lblText + " Harus Diisi.")
           }
         }
       }

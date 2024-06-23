@@ -46,6 +46,7 @@
                                                             Jenis Barang</label>
                                                         <div class="form-group">
                                                             <select class="choices form-select" name="jenis_id"
+                                                                data-parsley-required-message="Jenis Barang Harus Diisi"
                                                                 data-parsley-required="true">
                                                                 <option hidden value="">Pilih Jenis Barang
                                                                 </option>
@@ -63,6 +64,7 @@
                                                             Satuan</label>
                                                         <div class="form-group">
                                                             <select class="choices form-select" name="satuan_id"
+                                                                data-parsley-required-message="Satuan Harus Diisi"
                                                                 data-parsley-required="true">
                                                                 <option hidden value="">Pilih Satuan</option>
                                                                 @foreach ($satuanList as $satuan)

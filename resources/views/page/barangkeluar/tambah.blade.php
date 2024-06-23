@@ -33,7 +33,9 @@
                                     Tanggal Barang Keluar</label>
                                 <div class="form-group ">
                                     <input type="date" name="tgl_keluar" class="form-control flatpickr-no-config"
-                                        placeholder="Select date.." data-parsley-required="true">
+                                        placeholder="Masukan Tanggal Barang Keluar"
+                                        data-parsley-required-message="Tanggal Barang Keluar Harus Diisi"
+                                        data-parsley-required="true">
                                 </div>
                             </div>
                         </div>
@@ -43,6 +45,7 @@
                                     PT Customer</label>
                                 <div class="form-group">
                                     <select class="choices form-select" id="customer_id" name="customer_id"
+                                        data-parsley-required-message="PT Customer Harus Diisi"
                                         data-parsley-required="true">
                                         <option hidden value="">Pilih PT Customer</option>
                                         @foreach ($customerList as $item)
@@ -64,6 +67,7 @@
                                 <label for="barang_id" class="form-label">Kode Barang</label>
                                 <div class="form-group">
                                     <select class="choices form-select" id="barang_id" name="barang_id"
+                                        data-parsley-required-message="Kode Barang Harus Diisi"
                                         data-parsley-required="true">
                                         <option hidden value="">Pilih Kode Barang</option>
                                         @foreach ($barangList as $item)

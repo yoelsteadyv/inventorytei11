@@ -17,7 +17,6 @@ class BarangKeluarController extends Controller
         $customerList = MainCustomer::all();
 
         // dd($barang);
-        // return view("page.barangkeluar.index", compact("barang_keluar", "barang", "customer"));
         return view("page.barangkeluar.index", compact("barangKeluarList", "barangList", "customerList"));
     }
     public function tambah()

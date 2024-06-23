@@ -16,24 +16,26 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     "name" => "required|min:5",
-        //     "email" => "required",
-        //     "role" => "required",
-        //     "password" => "required",
-        // ]);
+        // Validasi data yang diterima dari request
+        $request->validate([
+            "name" => "required|min:4",
+            "email" => "required|email|unique:users,email",
+            "role" => "required",
+            "password" => "required|min:8",
+        ], [
+            'name.required' => 'Nama harus diisi.',
+            'name.min' => 'Nama harus memiliki minimal 4 karakter.',
+            'email.required' => 'Email harus diisi.',
+            'email.email' => 'Format email tidak valid.',
+            'email.unique' => 'Email sudah terdaftar.',
+            'role.required' => 'Peran harus diisi.',
+            'password.required' => 'Password harus diisi.',
+            'password.min' => 'Password harus memiliki minimal 8 karakter.',
+        ]);
         // dd($request);
         $data = [
             'name' => $request->input('name'),
@@ -45,29 +47,26 @@ class UserController extends Controller
         return redirect('/user')->with('success', 'Berhasil simpan data');
     }
 
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        // return view('/user/{id}', compact('id'));
+        // Validasi data yang diterima dari request
+        $request->validate([
+            "name" => "required|min:4",
+            "email" => "required|email",
+            "role" => "required",
+            "password" => "required|min:8",
+        ], [
+            'name.required' => 'Nama harus diisi.',
+            'name.min' => 'Nama harus memiliki minimal 5 karakter.',
+            'email.required' => 'Email harus diisi.',
+            'email.email' => 'Format email tidak valid.',
+            'role.required' => 'Peran harus diisi.',
+            'password.required' => 'Password harus diisi.',
+            'password.min' => 'Password harus memiliki minimal 8 karakter.',
+        ]);
         $data = [
             'name' => $request->input('name'),
             'email' => $request->input('email'),

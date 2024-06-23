@@ -87,7 +87,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <pre>{{ $item->barang_id }}</pre>
+                                                        {{-- <pre>{{ $item->barang_id }}</pre> --}}
                                                         <div class="col-12">
                                                             <div class="form-group">
                                                                 <label for="nama_brg" class="form-label">Nama

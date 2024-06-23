@@ -14,16 +14,12 @@ class BarangController extends Controller
         $barangList = Barang::with('jenis', 'satuan')->get()->sortByDesc('created_at');
         $jenisList = Jenis::all();
         $satuanList = Satuan::all();
-        // $barang = Barang::query()
-        //     ->join('jenis', 'barangs.id_jenis', '=', 'jenis.id_jenis')
-        //     ->join('satuans', 'barangs.id_satuan', '=', 'satuans.id_satuan')
-        //     ->latest('barangs.created_at')
-        //     ->get(['barangs.*', 'jenis.jenis_brg', 'satuans.satuan_brg', 'barangs.kd_barang']);
 
         // dd($barang);
         return view("page.masterbarang.barang.index", compact("barangList", "jenisList", "satuanList"));
     }
 
+    // Fungsi store untuk menyimpan data barang baru
     public function store(Request $request)
     {
         $barangAdd = [
@@ -37,7 +33,8 @@ class BarangController extends Controller
         return redirect('/barang')->with('success', 'Berhasil simpan data');
     }
 
-    public function update(Request $request,  $id)
+    // Fungsi update untuk mengubah data barang berdasarkan ID
+    public function update(Request $request, $id)
     {
         $barangUpdate = [
             'kd_barang' => $request->input('kd_barang'),

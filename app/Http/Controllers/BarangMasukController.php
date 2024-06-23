@@ -14,43 +14,17 @@ class BarangMasukController extends Controller
     public function index()
     {
         $barangMasukList = BarangMasuk::with('barang', 'supplier')->get()->sortByDesc('created_at');
-        // $barang = Barang::query()
-        //     ->join('jenis', 'barangs.id_jenis', '=', 'jenis.id_jenis')
-        //     ->join('satuans', 'barangs.id_satuan', '=', 'satuans.id_satuan')
-        //     ->get(['barangs.kd_barang', 'barangs.nama_brg', 'jenis.jenis_brg', 'satuans.satuan_brg']);
         $barangList = Barang::with('jenis', 'satuan')->get();
-
         $supplierList = MainSupplier::all();
-        // $barang_masuk = BarangMasuk::query()
-        //     ->leftJoin('barangs', 'barang_masuks.kd_barang', '=', 'barangs.kd_barang')
-        //     ->leftJoin('main_suppliers', 'barang_masuks.kd_supplier', '=', 'main_suppliers.kd_supplier')
-        //     ->leftJoin('jenis', 'barangs.id_jenis', '=', 'jenis.id_jenis')
-        //     ->leftJoin('satuans', 'barangs.id_satuan', '=', 'satuans.id_satuan')
-        //     ->latest('barang_masuks.created_at')
-        //     ->get();
+
         // dd($barang_masuk);
         return view("page.barangmasuk.index", compact("barangMasukList", "supplierList", "barangList"));
     }
     public function tambah()
     {
         $barangMasukList = BarangMasuk::with('barang', 'supplier')->get()->sortByDesc('created_at');
-
-
-        // $barang = Barang::query()
-        //     ->join('jenis', 'barangs.id_jenis', '=', 'jenis.id_jenis')
-        //     ->join('satuans', 'barangs.id_satuan', '=', 'satuans.id_satuan')
-        //     ->get(['barangs.kd_barang', 'barangs.nama_brg', 'jenis.jenis_brg', 'satuans.satuan_brg']);
-
         $barangList = Barang::with('jenis', 'satuan')->get();
         $supplierList = MainSupplier::all();
-        // $supplier = MainSupplier::query()->latest()->get();
-        // $barang_masuk = BarangMasuk::query()
-        //     ->leftJoin('barangs', 'barang_masuks.kd_barang', '=', 'barangs.kd_barang')
-        //     ->leftJoin('main_suppliers', 'barang_masuks.kd_supplier', '=', 'main_suppliers.kd_supplier')
-        //     ->latest('barang_masuks.created_at')
-        //     ->get();
-
-        // return view("page.barangmasuk.tambah", compact("barang_masuk", "barang", "supplier"));
         return view("page.barangmasuk.tambah", compact("barangMasukList", "supplierList", "barangList"));
     }
 
@@ -74,19 +48,7 @@ class BarangMasukController extends Controller
 
         return redirect('/barangmasuk')->with('success', 'Barang masuk berhasil ditambahkan');
     }
-    // public function update(Request $request,  $id)
-    // {
-    //     $barang = [
-    //         'kd_brg_masuk' => $request->input('kd_brg_masuk'),
-    //         'tgl_masuk' => $request->input('tgl_masuk'),
-    //         'kd_supplier' => $request->input('kd_supplier'),
-    //         'kd_barang' => $request->input('kd_barang'),
-    //         'brg_masuk' => $request->input('brg_masuk'),
-    //     ];
-    //     // dd($barang);
-    //     Barang::where('id', $id)->update($barang);
-    //     return redirect('/barangmasuk')->with('success', 'Berhasil simpan perubahan data');
-    // }
+
     public function update(Request $request, $kd_brg_masuk)
     {
         // Temukan BarangMasuk berdasarkan kd_brg_masuk
@@ -134,9 +96,6 @@ class BarangMasukController extends Controller
         return redirect('/barangmasuk')->with('success', 'Berhasil simpan perubahan data');
     }
 
-
-
-
     public function destroy($kd_brg_masuk)
     {
         // Temukan BarangMasuk berdasarkan kd_brg_masuk
@@ -175,10 +134,4 @@ class BarangMasukController extends Controller
 
         return redirect('/barangmasuk')->with('success', 'Data berhasil dihapus');
     }
-
-    // public function destroy($kd_brg_masuk)
-    // {
-    //     BarangMasuk::destroy($kd_brg_masuk);
-    //     return redirect('/barangmasuk')->with('success', 'Data berhasil dihapus');
-    // }
 }

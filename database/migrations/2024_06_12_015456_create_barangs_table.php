@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('barangs', function (Blueprint $table) {
             $table->id();
-            $table->string('kd_barang')->unique();
-            $table->string('nama_brg');
+            $table->string('kd_barang', 16)->unique();
+            $table->string('nama_brg', 32);
             $table->foreignId('jenis_id')->constrained('jenis')->onDelete('cascade');
             $table->foreignId('satuan_id')->constrained('satuans')->onDelete('cascade');
             $table->timestamps();

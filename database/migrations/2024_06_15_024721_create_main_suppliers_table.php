@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('main_suppliers', function (Blueprint $table) {
             $table->id();
-            $table->string('kd_supplier')->unique();
-            $table->string('pt_supplier');
-            $table->string('alamat');
-            $table->string('telp');
-            $table->string('email');
-            $table->string('person');
+            $table->string('kd_supplier', 16)->unique();
+            $table->string('pt_supplier', 32);
+            $table->string('alamat', 255);
+            $table->string('telp', 16);
+            $table->string('email', 32);
+            $table->string('person', 32);
             $table->timestamps();
         });
     }

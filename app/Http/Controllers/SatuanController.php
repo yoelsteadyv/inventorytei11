@@ -14,14 +14,6 @@ class SatuanController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
@@ -32,22 +24,6 @@ class SatuanController extends Controller
         ];
         Satuan::create($satuan_brg);
         return redirect('/satuanbarang')->with('success', 'Berhasil simpan data');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Satuan $satuan)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Satuan $satuan)
-    {
-        //
     }
 
     /**

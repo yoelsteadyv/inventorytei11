@@ -14,40 +14,22 @@ class JenisController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'jenis_brg' => 'required',
+        ], [
+            'jenis_brg.required' => 'Jenis barang harus diisi',
+        ]);
+
         $jenis_brg = [
             'jenis_brg' => $request->input('jenis_brg'),
             'keterangan' => $request->input('keterangan'),
         ];
         Jenis::create($jenis_brg);
         return redirect('/jenisbarang')->with('success', 'Berhasil simpan data');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Jenis $jenis)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Jenis $jenis)
-    {
-        //
     }
 
     /**
