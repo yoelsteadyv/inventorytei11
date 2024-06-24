@@ -27,7 +27,7 @@ class AuthController extends Controller
         if (Auth::attempt($infologin)) {
             return redirect('dashboard');
         } else {
-            return redirect('')->withErrors('username dan password yang dimasukan tidak sesuai')->withInput();
+            return redirect('')->withErrors('Email dan Password yang dimasukan tidak sesuai')->withInput();
         }
     }
     function logout()

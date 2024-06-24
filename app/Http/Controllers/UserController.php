@@ -22,13 +22,13 @@ class UserController extends Controller
     {
         // Validasi data yang diterima dari request
         $request->validate([
-            "name" => "required|min:4",
+            "name" => "required|min:3",
             "email" => "required|email|unique:users,email",
             "role" => "required",
             "password" => "required|min:8",
         ], [
             'name.required' => 'Nama harus diisi.',
-            'name.min' => 'Nama harus memiliki minimal 4 karakter.',
+            'name.min' => 'Nama harus memiliki minimal 3 karakter.',
             'email.required' => 'Email harus diisi.',
             'email.email' => 'Format email tidak valid.',
             'email.unique' => 'Email sudah terdaftar.',
@@ -54,13 +54,13 @@ class UserController extends Controller
     {
         // Validasi data yang diterima dari request
         $request->validate([
-            "name" => "required|min:4",
+            "name" => "required|min:3",
             "email" => "required|email",
             "role" => "required",
             "password" => "required|min:8",
         ], [
             'name.required' => 'Nama harus diisi.',
-            'name.min' => 'Nama harus memiliki minimal 5 karakter.',
+            'name.min' => 'Nama harus memiliki minimal 3 karakter.',
             'email.required' => 'Email harus diisi.',
             'email.email' => 'Format email tidak valid.',
             'role.required' => 'Peran harus diisi.',
